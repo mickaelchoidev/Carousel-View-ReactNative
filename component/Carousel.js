@@ -12,14 +12,14 @@ const infiniteScroll = (dataList) => {
   setInterval(() => {
     scrolled++
     if (scrolled < numberOfData) {
-      scrolled = scrollValue + width
+      scrollValue = scrollValue + width
     } else {
       scrollValue = 0
       scrolled = 0
     }
 
     this.flatList.scrollToOffset({ animated: true, offset: scrollValue })
-  }, 3000)
+  }, 4500)
 }
 
 const Carousel = ({ data }) => {
@@ -36,10 +36,10 @@ const Carousel = ({ data }) => {
     return (
       <View>
         <FlatList
+          data={data}
           ref={(flatList) => {
             this.flatList = flatList
           }}
-          data={data}
           keyExtractor={(item, index) => 'key' + index}
           horizontal
           pagingEnabled
